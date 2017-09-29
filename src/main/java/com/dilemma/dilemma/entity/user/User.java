@@ -1,9 +1,12 @@
 package com.dilemma.dilemma.entity.user;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by aslan.atasoy on 09/27/2017.
@@ -16,6 +19,10 @@ public class User implements Serializable {
     private String lastName;
     private String natId;
     private String address;
+    @CreatedDate
+    private Date createDate;
+    @LastModifiedDate
+    private Date updateDate;
 
     @Id
     public String getUserId() {
@@ -57,5 +64,21 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }

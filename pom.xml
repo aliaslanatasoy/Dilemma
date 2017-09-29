@@ -37,7 +37,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -49,9 +48,13 @@
 			<artifactId>jackson-core</artifactId>
 			<version>2.9.1</version>
 		</dependency>
+		<dependency>
+			<groupId>etiya.telaura.om.bpm.je</groupId>
+			<artifactId>orchestrator-je-process-definations</artifactId>
+			<version>develop</version>
+		</dependency>
 
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
