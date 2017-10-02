@@ -46,4 +46,15 @@ public class TopicService {
             return new ResponseEntity<Topic>(topic, HttpStatus.NOT_FOUND);
         }
     }
+
+    public ResponseEntity<Topic> deleteTopic(Topic topic) {
+        Topic retrievedTopic = topicRepository.findOne(topic.getTopicId());
+        if(retrievedTopic !=null){
+            topicRepository.delete(topic);
+            return new ResponseEntity<Topic>(topic, HttpStatus.ACCEPTED);
+        }
+        else{
+            return new ResponseEntity<Topic>(topic, HttpStatus.NOT_FOUND);
+        }
+    }
 }

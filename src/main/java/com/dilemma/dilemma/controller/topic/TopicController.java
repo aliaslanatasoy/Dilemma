@@ -34,4 +34,9 @@ public class TopicController {
     public ResponseEntity<Topic> updateTopic(@RequestBody Topic topic){
         return topicService.updateTopic(topic);
     }
+
+    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Topic> deleteTopic(@RequestBody Topic topic){
+        return topicService.deleteTopic(topic);
+    }
 }
