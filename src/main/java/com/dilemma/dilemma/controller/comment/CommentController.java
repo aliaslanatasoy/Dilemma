@@ -24,8 +24,8 @@ public class CommentController {
         return new ResponseEntity<>(commentService.getCommentsByTopicId(topicId), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Comment> getCommentByCommentId(@RequestParam(value = "commentId") String commentId) {
+    @RequestMapping(value = "/{commentId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Comment> getCommentByCommentId(@PathVariable (value = "commentId") String commentId) {
         return commentService.getComment(commentId);
     }
 
