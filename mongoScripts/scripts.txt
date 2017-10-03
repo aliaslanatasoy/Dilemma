@@ -1,0 +1,5 @@
+use dilemma
+db.createCollection(user)
+db.user.createIndex( { "natId": 1 }, { unique: true } )
+db.createCollection(comment)
+db.createCollection(topic)
