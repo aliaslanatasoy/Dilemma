@@ -4,15 +4,22 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
 import java.io.Serializable;
 import java.util.Date;
+
+import static javax.persistence.TemporalType.TIMESTAMP;
 
 /**
  * Created by aslan.atasoy on 09/27/2017.
  */
+@MappedSuperclass
 @Document(collection = "user")
-public class User implements Serializable {
+public class User implements Serializable{
+
 
     private String userId;
     private String firstName;
@@ -65,7 +72,7 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-
+    
     public Date getCreateDate() {
         return createDate;
     }

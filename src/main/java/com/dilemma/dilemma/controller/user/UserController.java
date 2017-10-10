@@ -1,10 +1,12 @@
 package com.dilemma.dilemma.controller.user;
 
 import com.dilemma.dilemma.entity.user.User;
+import com.dilemma.dilemma.security.AuthUser;
 import com.dilemma.dilemma.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,15 +21,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> addUser(@RequestBody User user) throws Exception{
         return userService.addUser(user);
     }
 
+
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> getUserByName(@RequestParam (value = "name") String name){
         return userService.getUserByName(name);
     }
+
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> updateUser(@RequestBody User user){
@@ -38,4 +43,6 @@ public class UserController {
     public ResponseEntity<User> deleteUser(@RequestBody User user){
         return userService.deleteUser(user);
     }
+
+
 }

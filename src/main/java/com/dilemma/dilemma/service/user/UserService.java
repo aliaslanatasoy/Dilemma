@@ -2,6 +2,7 @@ package com.dilemma.dilemma.service.user;
 
 import com.dilemma.dilemma.entity.user.User;
 import com.dilemma.dilemma.repository.user.UserRepository;
+import com.dilemma.dilemma.security.AuthUser;
 import com.fasterxml.jackson.core.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,4 +61,10 @@ public class UserService {
             return new ResponseEntity<User>(user,HttpStatus.NOT_FOUND);
         }
     }
+
+    public ResponseEntity<List<User>> getAllUsers(){
+        return new ResponseEntity<>(userRepository.findAll(),HttpStatus.OK);
+    }
+
+
 }
